@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your T&A Engraving account to track orders, manage designs and access exclusive member discounts.">
+  <title>Login | T&A Engraving — Premium Trophy & Awards Shop</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* STANDALONE AUTH — Login (page-scoped, auth- prefix) */
+    .auth-standalone {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8) var(--space-5);
+      background: var(--bg-primary);
+      position: relative;
+      overflow-x: clip;
+    }
+
+    .auth-standalone::before,
+    .auth-standalone::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .auth-standalone::before {
+      width: 480px;
+      height: 480px;
+      top: -160px;
+      inset-inline-end: -140px;
+      background: radial-gradient(circle, rgba(198,161,91,0.16) 0%, transparent 70%);
+    }
+
+    .auth-standalone::after {
+      width: 420px;
+      height: 420px;
+      bottom: -160px;
+      inset-inline-start: -140px;
+      background: radial-gradient(circle, rgba(112,45,59,0.22) 0%, transparent 70%);
+    }
+
+    .auth-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      padding: var(--space-10) var(--space-8);
+    }
+
+    .auth-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+      text-decoration: none;
+    }
+
+    .auth-brand-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-lg);
+      background: var(--grad-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .auth-brand-icon svg { width: 23px; height: 23px; stroke: var(--obsidian); fill: none; stroke-width: 2; }
+
+    .auth-brand-text { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 800; color: var(--text-primary); }
+    .auth-brand-text span { color: var(--gold); }
+
+    .auth-title { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 900; color: var(--text-primary); text-align: center; margin-bottom: var(--space-2); }
+    .auth-subtitle { font-size: var(--fs-sm); color: var(--text-muted); text-align: center; margin-bottom: var(--space-8); }
+
+    .auth-card .form-control { min-height: 52px; }
+
+    .auth-field { position: relative; }
+
+    .auth-field .form-control { padding-inline-end: 3rem; }
+
+    .auth-pw-toggle {
+      position: absolute;
+      top: 50%;
+      inset-inline-end: var(--space-4);
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border-radius: var(--radius-sm);
+    }
+
+    .auth-pw-toggle:hover { color: var(--gold); }
+    .auth-pw-toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    .auth-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+
+    .auth-remember { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); color: var(--text-secondary); cursor: pointer; }
+    .auth-remember input { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
+
+    .auth-forgot { font-size: var(--fs-sm); color: var(--gold); font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .auth-forgot:hover { text-decoration: underline; }
+
+    .auth-submit { width: 100%; justify-content: center; }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+
+    .auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-subtle); }
+    .auth-divider span { font-size: var(--fs-xs); color: var(--text-muted); white-space: nowrap; }
+
+    .auth-social { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+
+    .auth-social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-3);
+      min-height: 50px;
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .auth-social-btn:hover { border-color: var(--border-color); }
+    .auth-social-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .auth-switch { text-align: center; margin-top: var(--space-6); font-size: var(--fs-sm); color: var(--text-muted); }
+    .auth-switch a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .auth-switch a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .auth-standalone { padding: var(--space-6) var(--space-4); align-items: flex-start; }
+      .auth-card { padding: var(--space-8) var(--space-5); margin: auto 0; }
+      .auth-social { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <main id="main">
+    <div class="auth-standalone">
+      <div class="auth-card">
+
+        <a href="index.html" class="auth-brand" aria-label="T&A Engraving home">
+          <span class="auth-brand-icon" aria-hidden="true" style="background:transparent;">
+            <img src="images/logo-icon.svg" alt="T&A Engraving Crest" width="46" height="46">
+          </span>
+          <span class="auth-brand-text">T&A <span>Engraving</span></span>
+        </a>
+
+        <h1 class="auth-title">Welcome Back</h1>
+        <p class="auth-subtitle">Sign in to continue to your account.</p>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <div class="auth-field">
+              <input type="password" id="login-password" class="form-control" placeholder="Enter your password" autocomplete="current-password">
+              <button type="button" class="auth-pw-toggle" data-pw-toggle="login-password" aria-label="Show password" aria-pressed="false">
+                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-row">
+            <label class="auth-remember">
+              <input type="checkbox" id="remember-me">
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="auth-forgot" id="forgot-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg auth-submit">Sign In</button>
+        </form>
+
+        <div class="auth-divider"><span>or continue with</span></div>
+
+        <div class="auth-social">
+          <a class="auth-social-btn" href="https://www.google.com" target="_blank" rel="noopener" aria-label="Continue with Google">
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.17 0 9.99 0 12s.45 3.83 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+            Google
+          </a>
+          <a class="auth-social-btn" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Continue with Facebook">
+            <svg viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="auth-social-btn" href="https://www.apple.com" target="_blank" rel="noopener" aria-label="Continue with Apple">
+            <svg viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            Apple
+          </a>
+        </div>
+
+        <p class="auth-switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    var EYE_OPEN = '<svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+    var EYE_OFF = '<svg viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+    document.querySelectorAll('[data-pw-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = document.getElementById(btn.getAttribute('data-pw-toggle'));
+        var show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        btn.innerHTML = show ? EYE_OFF : EYE_OPEN;
+        btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+        btn.setAttribute('aria-pressed', show ? 'true' : 'false');
+      });
+    });
+
+    function setError(input, msg) {
+      clearError(input);
+      input.style.borderColor = '#E05252';
+      var err = document.createElement('p');
+      err.className = 'form-error';
+      err.textContent = msg;
+      input.closest('.form-group').appendChild(err);
+    }
+
+    function clearError(input) {
+      input.style.borderColor = '';
+      var group = input.closest('.form-group');
+      var err = group ? group.querySelector('.form-error') : null;
+      if (err) err.remove();
+    }
+
+    document.getElementById('login-email').addEventListener('input', function () { clearError(this); });
+    document.getElementById('login-password').addEventListener('input', function () { clearError(this); });
+
+    document.getElementById('forgot-link').addEventListener('click', function (e) {
+      e.preventDefault();
+      var email = prompt('Enter your email address to reset your password:');
+      if (email) Toast.show('Password reset link sent to ' + email, 'success');
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('login-email');
+      var pass = document.getElementById('login-password');
+      var valid = true;
+      if (!email.value.trim()) { setError(email, 'Email address is required.'); valid = false; }
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { setError(email, 'Please enter a valid email address.'); valid = false; }
+      if (!pass.value) { setError(pass, 'Password is required.'); valid = false; }
+      if (!valid) return;
+      Toast.show('Signing you in...', 'info');
+      setTimeout(function () { window.location.href = 'index.html'; }, 1500);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Lost Art of Hand Engraving — discover how T&A Engraving preserves traditional craftsmanship alongside modern laser technology.">
+  <title>The Lost Art of Hand Engraving | T&A Engraving Blog</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* BLOG DETAILS */
+
+    /* Always-filled navbar (this page only, other pages unaffected) */
+    .navbar,
+    .navbar:not(.scrolled) {
+      background: rgba(32, 33, 36, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    [data-theme="light"] .navbar,
+    [data-theme="light"] .navbar:not(.scrolled) {
+      background: rgba(248, 245, 239, 0.97);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+
+    [data-theme="light"] .navbar:not(.scrolled) .nav-links > li > a { color: var(--text-primary); text-shadow: none; }
+    [data-theme="light"] .navbar:not(.scrolled) .nav-icon-btn { color: var(--text-secondary); border-color: var(--border-subtle); background: transparent; }
+    [data-theme="light"] .navbar:not(.scrolled) .nav-hamburger span { background: var(--text-primary); box-shadow: none; }
+    [data-theme="light"] .navbar:not(.scrolled) .nav-logo .logo-main { text-shadow: none; }
+    [data-theme="light"] .navbar:not(.scrolled) .nav-logo .logo-sub { color: var(--text-muted); text-shadow: none; }
+    [data-theme="light"] .navbar .nav-logo .logo-main { color: var(--gold-dark); }
+    [data-theme="light"] .navbar .nav-logo .logo-main span { color: var(--obsidian); }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: var(--space-12);
+      align-items: start;
+    }
+
+    /* Article */
+    .article-header { margin-bottom: var(--space-8); }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-5);
+      flex-wrap: wrap;
+    }
+
+    .article-tag {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      background: var(--burgundy);
+      color: var(--ivory);
+      border-radius: var(--radius-sm);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .article-date { font-size: var(--fs-sm); color: var(--text-muted); }
+    .article-read-time { font-size: var(--fs-sm); color: var(--text-muted); }
+
+    .article-title {
+      font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: var(--space-5);
+    }
+
+    .article-subtitle {
+      font-size: var(--fs-lg);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+    }
+
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--grad-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--obsidian);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .author-name { font-family: var(--font-display); font-size: var(--fs-sm); font-weight: 700; color: var(--text-primary); }
+    .author-role { font-size: var(--fs-xs); color: var(--text-muted); }
+
+    .article-shares { margin-left: auto; display: flex; align-items: center; gap: var(--space-3); }
+    .share-label { font-size: var(--fs-xs); color: var(--text-muted); }
+    .share-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: transparent;
+      color: var(--text-muted);
+    }
+    .share-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(198,161,91,0.08); }
+
+    /* Hero image */
+    .article-hero-img {
+      width: 100%;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-8);
+    }
+
+    /* Article body */
+    .article-body { max-width: 100%; }
+
+    .article-body h2 {
+      font-size: var(--fs-2xl);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin: var(--space-10) 0 var(--space-4);
+      line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--gold);
+      margin: var(--space-8) 0 var(--space-3);
+    }
+
+    .article-body p {
+      font-size: var(--fs-md);
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: var(--space-5);
+    }
+
+    .article-body blockquote {
+      border-left: 4px solid var(--gold);
+      padding: var(--space-5) var(--space-8);
+      margin: var(--space-8) 0;
+      background: rgba(198,161,91,0.05);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      font-size: var(--fs-lg);
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    .article-body blockquote cite {
+      display: block;
+      font-size: var(--fs-sm);
+      font-style: normal;
+      color: var(--gold);
+      margin-top: var(--space-3);
+      font-weight: 600;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-5);
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .article-body li { margin-bottom: var(--space-2); font-size: var(--fs-md); }
+
+    .article-body img {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      margin: var(--space-6) 0;
+    }
+
+    .article-body .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin: var(--space-8) 0;
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .article-body .callout-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .article-body .callout p { margin-bottom: 0; }
+
+    /* Tags + share bottom */
+    .article-footer {
+      margin-top: var(--space-10);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .article-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-6); }
+    .article-tag-pill {
+      padding: var(--space-1) var(--space-3);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      color: var(--text-muted);
+    }
+
+    /* Author bio */
+    .author-bio {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      display: flex;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .author-bio-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--grad-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--obsidian);
+      flex-shrink: 0;
+    }
+
+    .author-bio-name { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--space-1); }
+    .author-bio-role { color: var(--gold); font-size: var(--fs-sm); margin-bottom: var(--space-3); }
+    .author-bio-text { font-size: var(--fs-sm); color: var(--text-muted); line-height: 1.8; }
+
+    /* Related posts */
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      display: block;
+    }
+
+    .related-card:hover { border-color: var(--border-color); transform: translateY(-4px); box-shadow: var(--shadow-gold); }
+
+    .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+
+    .related-card-body { padding: var(--space-4); }
+    .related-card-tag { font-size: var(--fs-xs); color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2); }
+    .related-card-title { font-family: var(--font-display); font-size: var(--fs-sm); font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+
+    /* Comments */
+    .comment-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      margin-bottom: var(--space-4);
+    }
+
+    .comment-header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+    .comment-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grad-gold); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--obsidian); font-family: var(--font-display); flex-shrink: 0; }
+    .comment-name { font-size: var(--fs-sm); font-weight: 700; color: var(--text-primary); }
+    .comment-date { font-size: var(--fs-xs); color: var(--text-muted); }
+    .comment-text { font-size: var(--fs-sm); color: var(--text-secondary); line-height: 1.8; }
+
+    /* Sidebar sticky */
+    .article-sidebar {
+      position: sticky;
+      top: calc(var(--navbar-h) + var(--space-6));
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    /* TOC */
+    .toc-widget { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: var(--space-5); }
+    .toc-title { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: var(--space-4); }
+    .toc-list { display: flex; flex-direction: column; gap: var(--space-2); }
+    .toc-link { font-size: var(--fs-sm); color: var(--text-muted); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); transition: all var(--transition-fast); display: block; }
+    .toc-link:hover, .toc-link.active { background: rgba(198,161,91,0.08); color: var(--gold); }
+
+    /* Progress bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--grad-gold);
+      z-index: 9999;
+      transition: width 0.1s;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .author-bio { flex-direction: column; align-items: center; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress" role="progressbar" aria-label="Reading progress"></div>
+
+  <div id="navbar-placeholder"></div>
+
+  <main id="main">
+
+    <!-- ==========================================
+         SECTION 1: ARTICLE HERO + CONTENT
+    =========================================== -->
+    <section class="section" aria-label="Article">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- Main Article -->
+          <article itemscope itemtype="https://schema.org/Article">
+
+            <!-- Article Header -->
+            <header class="article-header">
+              <div class="article-meta-top">
+                <span class="article-tag">Craftsmanship</span>
+                <span class="article-date">October 10, 2026</span>
+                <span class="article-read-time">· 8 min read</span>
+              </div>
+
+              <h1 class="article-title" itemprop="headline">The Lost Art of Hand Engraving: How We Keep Tradition Alive in a Digital Age</h1>
+
+              <p class="article-subtitle">In an era of automated laser systems, we believe the human hand still creates something no machine can replicate. Here's why we still train master engravers — and what they produce.</p>
+
+              <div class="article-author">
+                <div class="author-avatar">RT</div>
+                <div>
+                  <div class="author-name">Rajesh Trophywala</div>
+                  <div class="author-role">Founder & Master Engraver · 37 years experience</div>
+                </div>
+                <div class="article-shares">
+                  <span class="share-label">Share:</span>
+                  <button class="share-btn" onclick="copyLink()" aria-label="Copy link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  </button>
+                  <button class="share-btn" aria-label="Share on X">𝕏</button>
+                  <button class="share-btn" aria-label="Share on LinkedIn">in</button>
+                </div>
+              </div>
+            </header>
+
+            <!-- Hero Image -->
+            <img class="article-hero-img" src="images/craftsmanship.jpg" alt="Master engraver at work with traditional hand tools" itemprop="image" data-lightbox>
+
+            <!-- Article Body -->
+            <div class="article-body" id="article-content">
+
+              <p>When I first learned engraving from my father in 1987, the only tool available was a sharp steel graver and a steady hand. There were no computers, no lasers, no digital previews. Just metal, tool and intention. Today, we have all those technologies — and we use them enthusiastically. But we have never stopped teaching hand engraving.</p>
+
+              <p>Why? Because in the 37 years I have spent in this craft, I have seen something remarkable: when a recipient holds a hand-engraved award and runs their finger across the letters, something happens that never occurs with laser-engraved work. They slow down. They feel it. They understand that another human being made that mark specifically for them.</p>
+
+              <h2>The Physics of the Hand</h2>
+
+              <p>A laser engraves by burning material at consistent, programmable depths. The result is technically perfect — uniform depth, uniform width, precisely spaced. It's beautiful work, and for many applications, it's ideal.</p>
+
+              <p>Hand engraving is different. The pressure, angle and speed of the graver change with each stroke. On a trophy's curved surface, the engraver compensates instinctively for the changing plane. Each letter gains a subtle variation in line weight — heavier at the start of a stroke where pressure is highest, tapering as the hand lifts. This is called <em>shading</em>, and it's what gives traditional engraving its three-dimensional quality.</p>
+
+              <blockquote>
+                "A machine can cut a letter. Only a human can give it character."
+                <cite>— Rajesh Trophywala, Master Engraver</cite>
+              </blockquote>
+
+              <p>This shading quality has been prized since the Roman Empire. The inscriptions on Trajan's Column in Rome show the same technique — thick strokes and thin serifs that catch light differently at every angle, making the letters readable from 30 metres below.</p>
+
+              <h2>What We Teach Our Apprentices</h2>
+
+              <img src="images/craftsmanship.jpg" alt="Young engraver learning the craft from Rajesh" data-lightbox>
+
+              <p>Our apprentice programme lasts three years. In the first year, students do nothing but practice cuts on scrap metal — straight lines, curved lines, spirals, crosshatching. They are not permitted to engrave a single letter until their cuts are consistent and controlled. This seems cruel to impatient 22-year-olds, but it mirrors the training method used by European guilds for centuries.</p>
+
+              <h3>The Six Core Cuts</h3>
+
+              <p>Every engraving tradition builds from six fundamental graver cuts. Our apprentices must master all six before advancing:</p>
+
+              <ul>
+                <li><strong>The Straight Line</strong> — the foundation of all Roman lettering, requiring perfectly consistent pressure</li>
+                <li><strong>The Concave Curve</strong> — used for the interior of O, C, G, D and similar rounded letters</li>
+                <li><strong>The Convex Curve</strong> — for exterior curves on letters and decorative flourishes</li>
+                <li><strong>The Flick</strong> — a finishing stroke used to create tapering serifs and fine hairlines</li>
+                <li><strong>The Crosshatch</strong> — for shading backgrounds and creating texture in relief work</li>
+                <li><strong>The Bright Cut</strong> — an angled cut that creates a bright, reflective face on metal</li>
+              </ul>
+
+              <div class="callout">
+                <span class="callout-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg>
+                </span>
+                <p>For truly special awards — retirements, lifetime achievements, royal commendations — we always recommend a hand-engraved piece. The recipient will notice the difference immediately, and so will anyone who handles it.</p>
+              </div>
+
+              <h2>Where Laser and Hand Engraving Work Best Together</h2>
+
+              <p>We don't treat this as an either/or question. The most extraordinary awards we create combine both techniques. The laser handles large areas of consistent text — names and dates on 200 medals, for instance. Our master engravers then add hand-finished borders, decorative flourishes and any custom artwork that requires artistic sensitivity.</p>
+
+              <p>Crystal awards are always laser-engraved from the interior — hand engraving on crystal is technically impossible without risking fracture. But the base plaques on our premium crystal trophies are frequently hand-engraved, creating a beautiful contrast between the precision of the laser and the warmth of the hand.</p>
+
+              <h2>Preserving the Craft for Future Generations</h2>
+
+              <p>In 2023, we launched the T&A Engraving Apprenticeship Foundation, offering fully-funded three-year training to young craftspeople from across India. Our goal is to graduate 50 master engravers over the next decade — enough to seed studios in every major city and ensure this extraordinary skill never disappears from India's creative heritage.</p>
+
+              <p>If you have ever wondered whether the awards you commission are truly made with human craft — at T&A, the answer is always yes. Every piece carries the mark of human hands, human intention and 37 years of accumulated wisdom about what it means to honour someone with a physical, lasting object of beauty.</p>
+
+              <p>The tools have changed. The hand has not.</p>
+
+            </div>
+
+            <!-- Article Footer -->
+            <div class="article-footer">
+              <div class="article-tags">
+                <span class="article-tag-pill">Craftsmanship</span>
+                <span class="article-tag-pill">Hand Engraving</span>
+                <span class="article-tag-pill">Tradition</span>
+                <span class="article-tag-pill">Master Engraver</span>
+                <span class="article-tag-pill">Laser Technology</span>
+                <span class="article-tag-pill">Awards</span>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;">
+                <span style="font-size:var(--fs-sm);color:var(--text-muted);">Share this article:</span>
+                <button class="btn btn-outline btn-sm" onclick="copyLink()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy Link
+                </button>
+                <button class="btn btn-ghost btn-sm">𝕏 Tweet</button>
+                <button class="btn btn-ghost btn-sm">in Share</button>
+              </div>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="author-bio">
+              <div class="author-bio-avatar">RT</div>
+              <div>
+                <div class="author-bio-name">Rajesh Trophywala</div>
+                <div class="author-bio-role">Founder & Master Engraver</div>
+                <p class="author-bio-text">Rajesh founded T&A Engraving in 1987 with a small workshop and two hand tools. Over 37 years, he has trained over 200 engravers and crafted awards for heads of state, Olympic athletes and Fortune 500 companies. He writes about craft, precision and the philosophy of honouring human achievement.</p>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+
+            <!-- Table of Contents -->
+            <div class="toc-widget">
+              <div class="toc-title">In This Article</div>
+              <nav class="toc-list" aria-label="Table of contents">
+                <a href="#" class="toc-link active">The Physics of the Hand</a>
+                <a href="#" class="toc-link">What We Teach Apprentices</a>
+                <a href="#" class="toc-link">The Six Core Cuts</a>
+                <a href="#" class="toc-link">Laser vs Hand Engraving</a>
+                <a href="#" class="toc-link">Preserving the Craft</a>
+              </nav>
+            </div>
+
+            <!-- Related widget -->
+            <div class="sidebar-widget" style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:var(--space-5);">
+              <div class="widget-title" style="font-size:var(--fs-xs);font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--border-subtle);">Related Posts</div>
+              <a href="blog-details.html?id=crystal-guide" style="display:flex;gap:var(--space-3);padding:var(--space-3) 0;border-bottom:1px solid var(--border-subtle);text-decoration:none;">
+                <img src="images/crystal-awards.jpg" alt="Crystal Trophy" style="width:64px;height:48px;object-fit:cover;border-radius:var(--radius-md);flex-shrink:0;">
+                <div>
+                  <div style="font-size:var(--fs-sm);font-weight:600;color:var(--text-primary);line-height:1.3;">How to Choose Crystal Trophy Grade</div>
+                  <div style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:4px;">Oct 8, 2026</div>
+                </div>
+              </a>
+              <a href="blog-details.html?id=wood-beauty" style="display:flex;gap:var(--space-3);padding:var(--space-3) 0;text-decoration:none;">
+                <img src="images/wooden-plaques.jpg" alt="Wooden Plaques" style="width:64px;height:48px;object-fit:cover;border-radius:var(--radius-md);flex-shrink:0;">
+                <div>
+                  <div style="font-size:var(--fs-sm);font-weight:600;color:var(--text-primary);line-height:1.3;">Why Walnut Makes the Best Award Plaques</div>
+                  <div style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:4px;">Sep 28, 2026</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Order CTA -->
+            <div style="background:var(--grad-burgundy);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;">
+              <div style="width:48px;height:48px;margin:0 auto var(--space-3);border-radius:var(--radius-full);background:rgba(198,161,91,0.18);display:flex;align-items:center;justify-content:center;color:var(--gold);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>
+              </div>
+              <h3 style="font-family:var(--font-display);font-size:var(--fs-base);color:var(--ivory);margin-bottom:var(--space-3);">Design Your Award</h3>
+              <p style="font-size:var(--fs-sm);color:rgba(248,245,239,0.7);margin-bottom:var(--space-4);">Try our live engraving studio and preview your award before ordering.</p>
+              <a href="engraving.html" class="btn btn-primary w-full" style="justify-content:center;">Open Studio</a>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMMENTS
+    =========================================== -->
+    <section class="section-sm" style="background:var(--bg-surface);" aria-label="Comments">
+      <div class="container" style="max-width:800px;">
+        <h2 style="font-family:var(--font-display);font-size:var(--fs-2xl);margin-bottom:var(--space-8);">Comments <span class="text-gold">(12)</span></h2>
+
+        <div class="comment-card">
+          <div class="comment-header">
+            <div class="comment-avatar">PM</div>
+            <div>
+              <div class="comment-name">Priya Menon</div>
+              <div class="comment-date">October 11, 2026</div>
+            </div>
+          </div>
+          <p class="comment-text">This article gave me chills. I ordered hand-engraved plaques for our board members last year and every single one of them mentioned how different they felt from the laser-engraved ones we used before. The depth of the lettering is something else entirely.</p>
+        </div>
+
+        <div class="comment-card">
+          <div class="comment-header">
+            <div class="comment-avatar">AS</div>
+            <div>
+              <div class="comment-name">Arun Sharma</div>
+              <div class="comment-date">October 10, 2026</div>
+            </div>
+          </div>
+          <p class="comment-text">Rajeshji, I trained under you for 6 months in 2019 and this article captures everything you taught us about the flick cut perfectly. The six core cuts framework changed how I approach all engraving work. Thank you for writing this.</p>
+        </div>
+
+        <!-- Comment Form -->
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:var(--space-6);margin-top:var(--space-6);">
+          <h3 style="font-family:var(--font-display);font-size:var(--fs-lg);margin-bottom:var(--space-5);">Leave a <span class="text-gold">Comment</span></h3>
+          <form id="comment-form" novalidate>
+            <div class="control-row" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);">
+              <div class="form-group">
+                <label class="form-label" for="comment-name">Name *</label>
+                <input type="text" id="comment-name" class="form-control" placeholder="Your name" data-validate="required">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="comment-email">Email *</label>
+                <input type="email" id="comment-email" class="form-control" placeholder="your@email.com" data-validate="required,email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="comment-text">Your Comment *</label>
+              <textarea id="comment-text" class="form-control" rows="4" placeholder="Share your thoughts..." data-validate="required" style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: RELATED ARTICLES
+    =========================================== -->
+    <section class="section" aria-labelledby="related-h">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">More Reading</div>
+          <h2 id="related-h" class="section-title reveal">You Might Also <span class="text-gold">Enjoy</span></h2>
+        </div>
+        <div class="related-grid">
+          <a href="blog-details.html?id=crystal-guide" class="related-card reveal">
+            <img src="images/crystal-awards.jpg" alt="Crystal Trophy Guide" loading="lazy">
+            <div class="related-card-body">
+              <div class="related-card-tag">Guide</div>
+              <div class="related-card-title">How to Choose the Perfect Crystal Trophy Grade for Your Event</div>
+            </div>
+          </a>
+          <a href="blog-details.html?id=medal-trends" class="related-card reveal reveal-delay-1">
+            <img src="images/medals-collection.jpg" alt="Medal Design" loading="lazy">
+            <div class="related-card-body">
+              <div class="related-card-tag">Trends</div>
+              <div class="related-card-title">2026 Medal Design Trends: Innovation in Sports Recognition</div>
+            </div>
+          </a>
+          <a href="blog-details.html?id=corporate-culture" class="related-card reveal reveal-delay-2">
+            <img src="images/corporate-awards.jpg" alt="Corporate Awards" loading="lazy">
+            <div class="related-card-body">
+              <div class="related-card-tag">Corporate</div>
+              <div class="related-card-title">5 Ways Custom Awards Transform Corporate Culture</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTIONS 4-6: CTA Panels
+    =========================================== -->
+    <section class="section" style="background:var(--bg-surface);" aria-label="Newsletter">
+      <div class="container" style="max-width:640px;text-align:center;">
+        <div class="section-label">Stay Informed</div>
+        <h2 class="section-title reveal">Enjoyed This Article?<br><span class="text-gold">Get More Like It</span></h2>
+        <p style="color:var(--text-secondary);margin:0 auto var(--space-6);line-height:1.9;">Join 12,000+ award enthusiasts and industry professionals who receive our monthly insights on craftsmanship, trends and recognition strategies.</p>
+        <form id="article-newsletter" style="display:flex;gap:var(--space-3);max-width:480px;margin:0 auto;" novalidate>
+          <input type="email" class="form-control" placeholder="Enter your email" data-validate="required,email" style="flex:1;">
+          <button type="submit" class="btn btn-primary" style="flex-shrink:0;">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Reading progress
+    window.addEventListener('scroll', () => {
+      const content = document.getElementById('article-content');
+      if (!content) return;
+      const total = content.offsetTop + content.offsetHeight - window.innerHeight;
+      const progress = Math.min(100, Math.max(0, ((window.scrollY - content.offsetTop) / total) * 100));
+      document.getElementById('reading-progress').style.width = progress + '%';
+    });
+
+    // Copy link
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href);
+      Toast.show('Link copied to clipboard!', 'success');
+    }
+
+    // Forms
+    document.addEventListener('DOMContentLoaded', () => {
+      FormValidator.init('#comment-form');
+      document.getElementById('article-newsletter').addEventListener('submit', e => {
+        e.preventDefault();
+        Toast.show('You are now subscribed! Thank you.', 'success');
+        e.target.reset();
+      });
+    });
+
+    /* ==================================================
+       DYNAMIC ARTICLE (?id=...) — one HTML file serves
+       every blog post. No id = default hand-engraving
+       article already in the markup.
+       ================================================== */
+    const ARTICLE_CATALOG = {
+      'crystal-guide': {
+        tag: 'Guide', date: 'October 8, 2026', read: '6 min read',
+        title: 'How to Choose the Perfect Crystal Trophy for Your Corporate Event',
+        subtitle: 'K9, Bohemian, leaded or lead-free — what crystal grades really mean for brilliance, durability and price.',
+        author: 'Meera Trophywala', role: 'Creative Director', initials: 'MT',
+        bio: 'Meera leads the T&A design studio and oversees every bespoke crystal commission. An NIFT graduate, she writes about design, materials and award aesthetics.',
+        hero: 'images/crystal-awards.jpg', heroAlt: 'Crystal trophies catching the light',
+        img2: 'images/acrylic-award.jpg', img2Alt: 'Crystal award detailing up close',
+        h2: ['Know Your Crystal Grades', 'Match the Award to the Occasion', 'What to Check Before You Order', 'Caring for Crystal Awards'],
+        ps: [
+          'Not all crystal is equal. The difference between a ₹2,000 glass trophy and a ₹20,000 K9 masterpiece comes down to composition, clarity and cut — and buyers who understand the grades always make better choices.',
+          'In this guide, our design studio breaks down everything a corporate buyer needs to know before commissioning crystal awards, from lead content to light refraction.',
+          'K9 optical crystal is the industry gold standard — high clarity, excellent weight and brilliant refraction at a sensible price. Bohemian crystal carries heritage prestige and a higher price tag.',
+          'Leaded crystal (typically 24%+ lead oxide) offers unmatched sparkle and heft but costs significantly more. Lead-free crystalline is lighter, safer for handling and ideal for large-volume orders.',
+          'The single biggest factor in perceived quality is cut precision. Machine-polished facets with consistent angles throw far more light than cheap pressed glass, whatever the label claims.',
+          'Board-level ceremonies and national awards deserve K9 or above with deep-etch personalization. Team events and large tournaments are better served by quality crystalline at volume pricing.',
+          'Always ask for the crystal grade in writing, a photograph of the actual blank (not a render) and the engraving depth your text requires for readability.',
+          'Every reputable supplier provides these without hesitation. If a seller cannot name the grade, walk away — genuine K9 suppliers certify it.',
+          'Surface laser engraving suits names and dates. Subsurface 3D engraving floats logos and portraits inside the crystal itself.',
+          'Deep-etch sand carving gives the most luxurious tactile feel for hero pieces. Match the technique to the viewing distance of your ceremony stage.',
+          'Keep crystal out of direct harsh sunlight for display longevity, dust with a dry microfibre cloth and never use abrasive cleaners on engraved faces.',
+          'With basic care, a quality crystal award looks identical in fifty years. That permanence is exactly why institutions choose crystal for their highest honours.'
+        ],
+        lis: ['<strong>Ask the grade</strong> — genuine K9 suppliers certify it in writing', '<strong>Check the weight</strong> — real crystal feels substantially heavier than glass', '<strong>Inspect the cut</strong> — consistent facets mean machine-polished quality', '<strong>Confirm engraving depth</strong> — readability depends on it', '<strong>Request a proof</strong> — digital proofs should arrive within hours', '<strong>Compare total cost</strong> — include engraving, box and delivery, not just the blank'],
+        quote: 'Buy the best crystal your budget allows. A trophy is judged in the three seconds it catches the light.',
+        cite: 'Meera Trophywala, Creative Director',
+        callout: 'Planning a bulk crystal order? Share your event date and quantity with our studio for grade recommendations and volume pricing within 2 business hours.',
+        tags: ['Crystal', 'Buyers Guide', 'K9 Crystal', 'Corporate Events', 'Engraving', 'Awards'],
+        toc: ['Crystal Grades', 'Matching the Occasion', 'Checks Before Ordering', 'Engraving Techniques', 'Crystal Care']
+      },
+      'corporate-culture': {
+        tag: 'Corporate', date: 'October 5, 2026', read: '7 min read',
+        title: '5 Ways Custom Awards Transform Company Culture and Boost Retention',
+        subtitle: 'Recognition backed by research: how premium awards create lasting motivational impact across teams.',
+        author: 'Kavitha Rajan', role: 'Head of Client Relations', initials: 'KR',
+        bio: 'Kavitha manages corporate partnerships and bulk order portfolios at T&A. She writes about recognition strategy and building cultures people stay for.',
+        hero: 'images/corporate-awards.jpg', heroAlt: 'Corporate awards ceremony stage',
+        img2: 'images/awards-collection.jpg', img2Alt: 'Corporate recognition awards lineup',
+        h2: ['Recognition Is a Retention Strategy', 'Make Awards Specific and Timely', 'Let Peers Do the Nominating', 'Measure What Matters'],
+        ps: [
+          'Research consistently shows recognition programs increase employee engagement dramatically — yet most companies still treat awards as an afterthought ordered two days before the event.',
+          'After supplying thousands of corporate ceremonies, we have seen exactly which recognition habits move retention numbers and which ones waste budgets.',
+          'Employees who feel genuinely recognized are far more likely to stay, and far more likely to recommend their employer. A trophy on a desk works as daily proof that effort gets noticed.',
+          'The effect compounds: recognized teams refer stronger candidates, onboard faster and defend the culture that attracted them in the first place.',
+          'Generic "good job" trophies gather dust. Awards tied to a specific achievement — with the story engraved on the base — become identity objects people keep for decades.',
+          'Present within weeks of the achievement, never months later. Timeliness signals that leadership was actually paying attention.',
+          'Manager-only nominations miss quiet contributors. Peer-nominated categories surface the mentors, helpers and culture-carriers that performance dashboards never catch.',
+          'Rotate categories yearly so recognition stays fresh: innovation, mentorship, customer obsession, resilience and rising-star awards cover every strength.',
+          'Track retention in recognized cohorts versus company averages, eNPS movement after ceremonies and referral rates from award winners.',
+          'One client measured an 18% retention improvement in recognized teams within a year. Recognition spend showed the best ROI of any HR initiative they ran.',
+          'Start with one meaningful annual ceremony, three thoughtful categories and awards worth displaying. Quality beats quantity — a single prestigious trophy motivates more than ten forgettable ones.',
+          'Then scale what works. The companies with the strongest cultures treat recognition as infrastructure, not decoration.'
+        ],
+        lis: ['<strong>Be specific</strong> — engrave the achievement story, not just a name', '<strong>Be timely</strong> — present within weeks, never quarters later', '<strong>Include peers</strong> — nominations should come from every level', '<strong>Rotate categories</strong> — keep recognition fresh every year', '<strong>Display proudly</strong> — ceremonies matter as much as the award', '<strong>Measure impact</strong> — track retention in recognized cohorts'],
+        quote: 'People forget bonuses. Nobody forgets the night the whole company stood up and applauded them.',
+        cite: 'Kavitha Rajan, Head of Client Relations',
+        callout: 'Designing a recognition program? Our corporate team builds category structures, nomination flows and award sets for companies of 50 to 50,000.',
+        tags: ['Corporate', 'Culture', 'Retention', 'Recognition', 'HR Strategy', 'Awards'],
+        toc: ['Retention Strategy', 'Specific and Timely', 'Peer Nominations', 'Measuring Impact', 'Getting Started']
+      },
+      'medal-trends': {
+        tag: 'Sports', date: 'October 2, 2026', read: '5 min read',
+        title: '2026 Medal Design Trends: What Is Winning in Sports Recognition',
+        subtitle: 'Eco metals, AR QR codes and bold relief work — the innovations redefining sports medals this season.',
+        author: 'Aditya Sharma', role: 'Head of Production', initials: 'AS',
+        bio: 'Aditya heads production at T&A and oversees every die-cast and laser line. He writes about manufacturing, materials and the technology behind modern awards.',
+        hero: 'images/medals-collection.jpg', heroAlt: 'Championship medals collection',
+        img2: 'images/sports-trophies.jpg', img2Alt: 'Sports trophies and medals display',
+        h2: ['Relief Depth Is the New Standard', 'Sustainable Metals Go Mainstream', 'Smart Medals Carry QR Stories', 'Ribbons Complete the Podium Look'],
+        ps: [
+          'Sports medals used to be flat, light and forgettable. The 2026 season has rewritten the rulebook — athletes now expect medals with presence, weight and a story.',
+          'As the team producing medals for state and national championships, here are the four trends dominating every podium this year.',
+          'High-relief 3D sculpting is now the baseline expectation. Shallow stamped medals read as cheap in photographs; deep relief catches stadium light and looks magnificent around a neck.',
+          'Custom die work costs less than organizers assume at 100+ quantities, and the perceived value jump is enormous.',
+          'Recycled zinc and copper alloys now match virgin metals for finish quality. Eco credentials printed on the ribbon or sleeve resonate strongly with young athletes and institutional buyers.',
+          'Ask your supplier for material certification — genuine recycled content comes documented, and events increasingly require it for sustainability reporting.',
+          'Laser-etched QR codes linking to race footage, certificates or highlight reels turn a medal into a digital keepsake athletes actually scan and share.',
+          'The code must survive handling, so subsurface or deep-etch placement beats surface printing every time.',
+          'Sublimated custom ribbons in event colours now outsell stock ribbons three to one. A great medal with a generic ribbon photographs like an average medal.',
+          'Budget the ribbon properly — it is the most visible square centimetres of the entire award in podium photos.',
+          'Order timelines have tightened as seasons compress. Confirm die readiness, ribbon stock and engraving capacity before announcing dates.',
+          'The organizers who plan medals early get custom work; the ones who order late get whatever is in stock.'
+        ],
+        lis: ['<strong>Go deep-relief</strong> — 3D sculpting beats flat stamping visibly', '<strong>Certify eco metals</strong> — documented recycled content only', '<strong>Add QR stories</strong> — deep-etch codes that survive handling', '<strong>Design the ribbon</strong> — custom colours outsell stock 3 to 1', '<strong>Confirm capacity</strong> — dies, ribbons and engraving slots early', '<strong>Plan backwards</strong> — announce dates only after supply is locked'],
+        quote: 'Athletes keep medals for life. Design like it — every gram of relief is remembered.',
+        cite: 'Aditya Sharma, Head of Production',
+        callout: 'Organizing a tournament? Send your event date, quantity and sport for die recommendations and a locked production slot.',
+        tags: ['Sports', 'Medals', 'Trends 2026', 'Design', 'Tournaments', 'Awards'],
+        toc: ['Relief Standards', 'Sustainable Metals', 'Smart QR Medals', 'Ribbon Design', 'Planning Timelines']
+      },
+      'wood-beauty': {
+        tag: 'Craftsmanship', date: 'September 28, 2026', read: '6 min read',
+        title: 'The Beauty of Wood: Why Walnut and Mahogany Make the Finest Award Plaques',
+        subtitle: 'Grain, warmth and permanence — why natural wood remains the most prestigious plaque material.',
+        author: 'Rajesh Trophywala', role: 'Founder & Master Engraver', initials: 'RT',
+        bio: 'Rajesh founded T&A Engraving in 1987 and has trained over 200 engravers. He writes about craft, precision and honouring human achievement.',
+        hero: 'images/wooden-plaques.jpg', heroAlt: 'Walnut and mahogany award plaques',
+        img2: 'images/craftsmanship.jpg', img2Alt: 'Hand-finishing a wooden plaque',
+        h2: ['No Two Plaques Are Ever Identical', 'Walnut vs Mahogany vs Cherry', 'Deep Carving Reveals the Grain', 'Finishing Makes or Breaks It'],
+        ps: [
+          'Every piece of walnut has a unique grain story — mineral streaks, cathedral arches, quiet straight grain. No two plaques from our workshop have ever been identical, and that is precisely the point.',
+          'In an age of identical acrylic, a wooden plaque tells the recipient their award is one of one. Here is what four decades of woodwork have taught us.',
+          'Walnut offers deep chocolate tones and dramatic grain — the traditional choice for executive and judicial recognition. Mahogany brings reddish warmth and a formal, institutional character.',
+          'Cherry starts lighter and deepens beautifully with age, making it ideal for awards meant to be kept for decades. All three take brass and silver plates superbly.',
+          'Shallow laser marking sits on the surface; deep carving cuts into it, letting stain and light play inside the letters. For hero pieces, always choose depth.',
+          'Hand-rubbed oil finishes penetrate the wood and age gracefully, while lacquer gives immediate high gloss. We finish according to where the plaque will live.',
+          'The most common failure we repair from other suppliers is rushed finishing — raised grain, cloudy lacquer, sharp un-sanded edges. Each of our plaques passes through five sanding stages.',
+          'Edges should feel like glass, corners should be eased, and the back should be finished as carefully as the front. Recipients handle plaques; every surface speaks.',
+          'Pair wood with engraved brass for tradition, silver for modern contrast, or direct deep-carve for a pure craftsman statement.',
+          'Wall-mount fittings must be rated well above the plaque weight, and we include them fitted — never as an afterthought in a plastic bag.',
+          'Store finished plaques away from direct harsh sunlight and extreme dryness to protect both wood and finish for generations.',
+          'Done right, a wooden plaque outlives the career it honours — and often becomes a family heirloom.'
+        ],
+        lis: ['<strong>Choose real hardwood</strong> — walnut, mahogany or cherry, never veneer over MDF', '<strong>Carve deep</strong> — depth is what separates premium from ordinary', '<strong>Sand five stages</strong> — edges should feel like glass', '<strong>Finish for location</strong> — oil for warmth, lacquer for gloss', '<strong>Fit the mountings</strong> — rated fittings, pre-fitted', '<strong>Protect from sun</strong> — harsh light ages wood prematurely'],
+        quote: 'Wood remembers the hand that shaped it. So does everyone who holds the finished plaque.',
+        cite: 'Rajesh Trophywala, Master Engraver',
+        callout: 'Commissioning executive plaques? Tell us the occasion and quantity for wood recommendations and carved samples.',
+        tags: ['Wood', 'Plaques', 'Craftsmanship', 'Walnut', 'Executive Gifts', 'Awards'],
+        toc: ['Unique Grain', 'Wood Compared', 'Deep Carving', 'Finishing Secrets', 'Plaque Care']
+      },
+      'laser-vs-hand': {
+        tag: 'Trends', date: 'September 22, 2026', read: '9 min read',
+        title: 'Laser vs. Hand Engraving: Which Technique Is Right for Your Award?',
+        subtitle: 'Precision, cost, turnaround and soul — an honest comparison from a studio that masters both.',
+        author: 'Aditya Sharma', role: 'Head of Production', initials: 'AS',
+        bio: 'Aditya heads production at T&A and runs both the fiber-laser lines and the hand-engraving atelier. He writes about technique, tooling and honest trade-offs.',
+        hero: 'images/hero-slider3.jpg', heroAlt: 'Laser engraving machine at work',
+        img2: 'images/craftsmanship.jpg', img2Alt: 'Hand engraving with traditional graver',
+        h2: ['How Each Technique Actually Works', 'Precision vs Character', 'Cost and Turnaround Compared', 'Our Honest Recommendation'],
+        ps: [
+          'Clients ask us constantly which engraving technique to choose, expecting us to pick a side. The truth from a studio running both daily: each wins different jobs, and the best awards often combine them.',
+          'Here is the unvarnished comparison we give every customer before they spend a rupee.',
+          'Fiber lasers vaporize material at micron precision, repeating identical marks thousands of times. Hand engraving cuts with a graver, varying pressure and angle with every stroke.',
+          'One is programmable perfection; the other is controlled human expression. Understanding that difference decides everything else.',
+          'Laser wins on consistency — 200 medals with identical text, zero variation. Hand wins on character — line-weight shading that catches light like calligraphy and cannot be programmed.',
+          'For readable small text and QR codes, laser is objectively superior. For hero names on prestige pieces, most recipients find hand work more moving.',
+          'Laser setup is fast and unit costs fall steeply with volume, making it ideal for bulk runs. Hand engraving is skilled-labour time, priced fairly higher per piece.',
+          'Turnaround follows the same logic: lasers deliver hundreds of pieces in days; hand commissions need scheduling with master engravers weeks ahead for large orders.',
+          'For bulk medals and plaques: go laser, invest the savings in better materials. For retirements, lifetime awards and flagship trophies: commission hand finishing.',
+          'For the best of both, let lasers handle consistent text and hand engravers add borders, flourishes and artwork. Our most celebrated pieces are hybrids.',
+          'Beware suppliers who only own one technology — their advice will always favour their machine. Ask what each technique costs separately.',
+          'Whichever you choose, insist on a proof before production. A photograph of the actual engraved sample beats any render.'
+        ],
+        lis: ['<strong>Bulk consistency</strong> — laser wins identical repeat work', '<strong>Hero character</strong> — hand wins prestige names', '<strong>Small text & codes</strong> — laser reads better at size', '<strong>Budget bulk</strong> — laser unit costs fall with volume', '<strong>Consider hybrids</strong> — laser text plus hand flourishes', '<strong>Always proof first</strong> — real samples, never just renders'],
+        quote: 'We own both technologies, so our only loyalty is to the right result for your award.',
+        cite: 'Aditya Sharma, Head of Production',
+        callout: 'Unsure which technique suits your order? Send your text and quantity for a side-by-side recommendation and pricing.',
+        tags: ['Laser', 'Hand Engraving', 'Comparison', 'Technique', 'Guide', 'Awards'],
+        toc: ['How They Work', 'Precision vs Soul', 'Cost Compared', 'Recommendations', 'Proofing First']
+      },
+      'ceremony-guide': {
+        tag: 'Guide', date: 'September 18, 2026', read: '11 min read',
+        title: 'The Complete Guide to Planning a Corporate Awards Ceremony on Any Budget',
+        subtitle: 'From team lunches to grand galas — a step-by-step playbook for ceremonies people remember.',
+        author: 'Kavitha Rajan', role: 'Head of Client Relations', initials: 'KR',
+        bio: 'Kavitha manages corporate partnerships at T&A and has guided hundreds of ceremonies from brief to stage. She writes about planning, budgets and flawless execution.',
+        hero: 'images/acrylic-award.jpg', heroAlt: 'Modern awards ready for ceremony night',
+        img2: 'images/corporate-awards.jpg', img2Alt: 'Corporate awards lineup for gala event',
+        h2: ['Start With the Story, Not the Stage', 'Budget Backwards From Impact', 'Awards Your Winners Display', 'Rehearse the Ten Minutes'],
+        ps: [
+          'The most memorable ceremonies we supply share one trait: the organizers decided what the night should mean before booking anything. Everything else — venue, awards, script — serves that story.',
+          'Whether it is a 20-person lunch or a 2,000-guest gala, this playbook scales to any budget because the principles never change.',
+          'List your categories and winners first, then allocate budget to what the audience remembers: the award moment itself, photography of it and the trophy winners take home.',
+          'Décor impresses for an evening; a prestigious trophy motivates for years. When forced to choose, fund the award before the centerpieces.',
+          'Match award prestige to achievement weight: crystal and metal for top honours, quality medals and plaques for broad categories. Every tier should still feel premium.',
+          'Order samples early — holding the actual award ends all internal debate about quality faster than any catalogue photograph.',
+          'Confirm quantities, name spellings and engraving proofs a full month out. Rush fees and overnight shipping quietly destroy more budgets than any venue ever has.',
+          'Build a 10% buffer into trophy counts for last-minute winners and engraving corrections. Unused spares become next year s head start.',
+          'The ten minutes covering winner announcement, walk-up, handshake, photograph and exit deserve a full rehearsal. This is the footage everyone shares.',
+          'Brief presenters on name pronunciations, handshake-side staging and where to look during photos. Amateur handling ruins professional awards.',
+          'Close the night by telling winners exactly where to find their photographs, and share ceremony images within 48 hours while pride is fresh.',
+          'Then survey one question: did the night make winners feel extraordinary? That single metric guides next year s entire plan.'
+        ],
+        lis: ['<strong>Story first</strong> — decide the night s meaning before booking', '<strong>Fund the award</strong> — trophies outlast décor by years', '<strong>Sample early</strong> — holding beats catalogues always', '<strong>Buffer 10%</strong> — spares cover surprises gracefully', '<strong>Rehearse ten minutes</strong> — the walk-up is the shareable moment', '<strong>Follow up fast</strong> — photos within 48 hours'],
+        quote: 'Nobody remembers the centerpieces. Everybody remembers holding their trophy while the room applauded.',
+        cite: 'Kavitha Rajan, Head of Client Relations',
+        callout: 'Planning a ceremony? Share your date, headcount and budget for a complete awards plan with locked pricing.',
+        tags: ['Ceremony', 'Corporate', 'Planning', 'Guide', 'Events', 'Awards'],
+        toc: ['Story First', 'Budgeting', 'Choosing Awards', 'Rehearsal', 'Follow-Up']
+      }
+    };
+
+    function setText(sel, txt) {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = txt;
+    }
+
+    // Render the requested article (?id=...). No id = default markup stays.
+    (function loadArticleFromQuery() {
+      let id = null;
+      try { id = new URLSearchParams(window.location.search).get('id'); } catch (e) { id = null; }
+      const a = id && ARTICLE_CATALOG[id];
+      if (!a) return;
+
+      document.title = a.title + ' | T&A Engraving Blog';
+
+      setText('.article-tag', a.tag);
+      setText('.article-date', a.date);
+      setText('.article-read-time', '· ' + a.read);
+      setText('.article-title', a.title);
+      setText('.article-subtitle', a.subtitle);
+
+      setText('.author-avatar', a.initials);
+      setText('.author-name', a.author);
+      setText('.author-role', a.role);
+      setText('.author-bio-avatar', a.initials);
+      setText('.author-bio-name', a.author);
+      setText('.author-bio-role', a.role);
+      setText('.author-bio-text', a.bio);
+
+      const hero = document.querySelector('.article-hero-img');
+      if (hero) { hero.src = a.hero; hero.alt = a.title; }
+
+      const body = document.getElementById('article-content');
+      if (body) {
+        const ps = body.querySelectorAll(':scope > p');
+        a.ps.forEach((t, i) => { if (ps[i]) ps[i].textContent = t; });
+        const h2s = body.querySelectorAll(':scope > h2');
+        a.h2.forEach((t, i) => { if (h2s[i]) h2s[i].textContent = t; });
+        const lis = body.querySelectorAll('ul li');
+        a.lis.forEach((t, i) => { if (lis[i]) lis[i].innerHTML = t; });
+        const bq = body.querySelector('blockquote');
+        if (bq) {
+          if (bq.childNodes[0]) bq.childNodes[0].textContent = '"' + a.quote + '" ';
+          const cite = bq.querySelector('cite');
+          if (cite) cite.textContent = '— ' + a.cite;
+        }
+        const co = body.querySelector('.callout p');
+        if (co) co.textContent = a.callout;
+        const img2 = body.querySelectorAll(':scope > img')[0];
+        if (img2) { img2.src = a.img2; img2.alt = a.img2Alt; }
+      }
+
+      const pills = document.querySelector('.article-tags');
+      if (pills) pills.innerHTML = a.tags.map(t => '<span class="article-tag-pill">' + t + '</span>').join('');
+
+      const tocLinks = document.querySelectorAll('.toc-link');
+      a.toc.forEach((t, i) => { if (tocLinks[i]) tocLinks[i].textContent = t; });
+    })();
+
+    // Forms
+    document.addEventListener('DOMContentLoaded', () => {
+      FormValidator.init('#comment-form');
+      document.getElementById('article-newsletter').addEventListener('submit', e => {
+        e.preventDefault();
+        Toast.show('You are now subscribed! Thank you.', 'success');
+        e.target.reset();
+      });
+    });
+  </script>
+</body>
+</html>
