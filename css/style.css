@@ -59,7 +59,7 @@ button { cursor: pointer; border: none; background: none; }
 .font-display { font-family: var(--font-display); }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
   color: var(--text-primary);
 }
@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
   font-size: var(--fs-4xl);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
@@ -783,7 +783,7 @@ select.form-control {
 .hero-content .pre-title {
   font-family: var(--font-body);
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
@@ -795,7 +795,7 @@ select.form-control {
 
 .hero-content .main-title {
   font-size: clamp(2.75rem, 7vw, 4.25rem);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ivory);
   text-shadow: 0 4px 32px rgba(0,0,0,0.5);
@@ -1031,7 +1031,7 @@ select.form-control {
 .product-name {
   font-family: var(--font-display);
   font-size: var(--fs-md);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
   line-height: 1.3;
@@ -1312,7 +1312,7 @@ select.form-control {
 .footer-col h4 {
   font-family: var(--font-display);
   font-size: var(--fs-sm);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -1653,7 +1653,7 @@ select.form-control {
 
 .page-hero-title {
   font-size: var(--fs-4xl);
-  font-weight: 900;
+  font-weight: 600;
   color: var(--ivory);
   margin-bottom: var(--space-3);
 }
@@ -1852,7 +1852,7 @@ select.form-control {
 
 .page-hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.05;
   color: var(--ivory);
   margin-bottom: var(--space-4);
@@ -2014,7 +2014,7 @@ select.form-control {
 .product-name {
   font-family: var(--font-display);
   font-size: var(--fs-base);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
   line-height: 1.25;
@@ -2129,7 +2129,7 @@ select.form-control {
 .widget-title {
   font-family: var(--font-display);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-primary);

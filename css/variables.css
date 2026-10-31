@@ -45,6 +45,7 @@
   --font-display: 'Cinzel', Georgia, serif;
   --font-body: 'Manrope', system-ui, sans-serif;
   --font-mono: 'Courier New', monospace;
+  --font-weight-heading: 600;
 
   /* Font Sizes (fluid) */
   --fs-xs: clamp(0.65rem, 1.2vw, 0.75rem);
