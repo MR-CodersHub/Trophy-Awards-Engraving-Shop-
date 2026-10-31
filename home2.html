@@ -154,7 +154,13 @@
       margin-bottom: var(--space-6);
     }
 
-    .editorial-ctas { display: flex; flex-direction: column; gap: var(--space-4); max-width: 300px; }
+    .editorial-ctas {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
 
     /* HOME2 — 2nd CTA properly visible on both themes */
     .editorial-ctas .btn-ghost {
@@ -557,8 +563,8 @@
         </h1>
         <p class="desc">We don't just make trophies — we forge legacies. Every award is a declaration that this moment, this achievement, this person deserves to be remembered.</p>
         <div class="editorial-ctas">
-          <a href="engraving.html" class="btn btn-primary btn-lg w-full" style="justify-content:center;">Design Your Award</a>
-          <a href="products.html" class="btn btn-ghost btn-lg w-full" style="justify-content:center;">Explore Collection</a>
+          <a href="engraving.html" class="btn btn-primary btn-lg" style="justify-content:center;">Design Your Award</a>
+          <a href="products.html" class="btn btn-ghost btn-lg" style="justify-content:center;">Explore Collection</a>
         </div>
       </div>
       <div class="editorial-right">
