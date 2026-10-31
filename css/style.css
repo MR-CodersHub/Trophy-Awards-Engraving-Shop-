@@ -234,10 +234,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  max-width: var(--max-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 var(--space-6);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 /* Logo */
@@ -314,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: 4px;
   list-style: none;
   flex: 1;
   justify-content: center;
@@ -328,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) 8px;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
@@ -1729,6 +1729,16 @@ select.form-control {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .nav-links {
+    gap: 4px;
+  }
+  .nav-links > li > a {
+    padding: var(--space-2) 6px;
+    font-size: 0.76rem;
   }
 }
 

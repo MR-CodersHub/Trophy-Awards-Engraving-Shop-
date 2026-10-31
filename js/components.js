@@ -64,9 +64,8 @@ function renderNavbar(activePage = '') {
       <!-- RTL Toggle -->
       <button class="nav-icon-btn" data-rtl-toggle aria-label="Toggle RTL/LTR">RTL</button>
 
-      <!-- Login -->
-      <a href="login.html" class="btn btn-outline btn-sm" aria-label="Login">Login</a>
-      <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+      <!-- CTA Button -->
+      <a href="contact.html" class="btn btn-primary btn-sm">Order Now</a>
 
       <!-- Hamburger -->
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -80,8 +79,7 @@ function renderNavbar(activePage = '') {
 <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobile navigation">
   <div class="mobile-links">
     ${mobileLinks()}
-    <a href="login.html" class="btn btn-outline" style="margin-top:1rem;justify-content:center">Login</a>
-    <a href="contact.html" class="btn btn-primary" style="margin-top:0.5rem;justify-content:center">Get Started</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;justify-content:center">Order Now</a>
   </div>
 </div>`;
 }
